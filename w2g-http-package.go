@@ -5,6 +5,16 @@ import (
 	"net/http"
 )
 
+func FillAnswerHeader(w http.ResponseWriter) {
+	w.Header().Set("content-type", "application/json")
+}
+
+func OptionsAnswer(w http.ResponseWriter) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "*")
+}
+
 func SetupHeaderResponse(w *http.ResponseWriter, req *http.Request) {
 	(*w).Header().Set("Access-Control-Allow-Origin", "*")
 	(*w).Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, PATCH, DELETE")
